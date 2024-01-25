@@ -2,7 +2,6 @@
   <section>
     <base-card>
       <template v-slot:header>
-        <h2>Available Badges</h2>
       </template>
       <template v-slot:default>
         <ul>
@@ -35,4 +34,5 @@ ul {
 li {
   margin-right: 1rem;
 }
+
 </style>
