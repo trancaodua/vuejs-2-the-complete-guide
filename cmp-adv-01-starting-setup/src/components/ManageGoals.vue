@@ -25,6 +25,7 @@ export default {
             inputIsInvalid: false
         }
     },
+    
     unmounted() {
         console.log('Unmount');
     },
