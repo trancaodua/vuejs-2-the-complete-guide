@@ -1,10 +1,18 @@
 <template>
+  <router-view v-slot="slotProps">
+    <transition name="fade-button" mode="out-in">
+      <component :is="slotProps.Component"></component>
+    </transition>
+  </router-view>
+  <!-- <div class="container">
+    <users-list></users-list>
+  </div>
   <div class="container">
     <div class="block" :class="{ animate: animatedBlock }"></div>
     <button @click="animateBlock">Animate</button>
   </div>
   <div class="container">
-    <transition name="para" @before-enter="beforeEnter" @enter="enter" @before-leave="beforeLeave"
+    <transition :css="false" @before-enter="beforeEnter" @enter="enter" @before-leave="beforeLeave"
       @after-enter="afterEnter" @befor-leave="beforeLeave" @leave="leave" @after-leave="afterLeave"
       @enter-cancelled="enterCancelled" @leave-cancelled="leaveCancelled">
       <p v-if="paraIsVisible">This is only sometimes visible...</p>
@@ -23,11 +31,16 @@
   </base-modal>
   <div class="container">
     <button @click="showDialog">Show Dialog</button>
-  </div>
+  </div> -->
 </template>  
 
 <script>
+// import UsersList from './components/UsersList.vue';
+
 export default {
+  // components: {
+  //   UsersList
+  // },
   data() {
     return {
       animatedBlock: false,
@@ -188,6 +201,18 @@ button:active {
   opacity: 1;
 }
 
+
+.route-enter-from {}
+
+.route-enter-active {
+  animation: slide-scale 0.4s ease-out;
+}
+
+.route-enter-to {}
+
+.router-leave-active {
+  animation: slide-scale 0.4s ease-in;
+}
 
 @keyframes slide-scale {
   0% {
